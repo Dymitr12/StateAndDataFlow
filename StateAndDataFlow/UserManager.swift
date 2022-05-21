@@ -6,13 +6,18 @@
 //
 
 import Foundation
-//import Combine
+import UIKit
 
 final class UserManager: ObservableObject {
-    
     @Published var isregistered = false
     var name = ""
     
+    public func logOut() {
+        isregistered.toggle()
+        name = ""
+    }
+    
+    var nameIsValid: Bool {
+        name.count >= 3
+    }
 }
-
-

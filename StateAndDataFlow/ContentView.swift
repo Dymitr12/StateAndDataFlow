@@ -23,6 +23,8 @@ struct ContentView: View {
             Spacer()
             Buttonview(timer: timer)
             Spacer()
+            LogOutButton()
+            
         }
     }
 }
@@ -45,11 +47,7 @@ struct Buttonview: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
-        .frame(width: 200, height: 60)
-        .background(.green)
-        .cornerRadius(20)
-        .overlay {
-            RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2)
-        }
+        .buttonStyle()
+
     }
 }
