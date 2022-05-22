@@ -65,12 +65,12 @@
 			children = (
 				27C3D0372835671B007E168D /* StateAndDataFlowApp.swift */,
 				27C3D04D2835760F007E168D /* StarterView.swift */,
-				27FFC3CF28397608001FD278 /* LogOutButton.swift */,
 				27C3D0392835671B007E168D /* ContentView.swift */,
 				27C3D04528356B50007E168D /* TimeCounter.swift */,
 				27C3D047283571C0007E168D /* RegisterView.swift */,
 				27C3D04928357307007E168D /* UserManager.swift */,
 				27FFC3D1283985DF001FD278 /* StorageManager.swift */,
+				27FFC3CF28397608001FD278 /* LogOutButton.swift */,
 				27C3D03B2835671E007E168D /* Assets.xcassets */,
 				27C3D03D2835671E007E168D /* Preview Content */,
 			);

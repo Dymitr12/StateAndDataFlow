@@ -9,36 +9,54 @@ import SwiftUI
 
 struct RegisterView: View {
     
-    @EnvironmentObject private var userManager: UserManager
+    @EnvironmentObject private var userManger: UserManager
     
     @State private var name = ""
-    @Binding var nameIsValid: Bool
-    
+
     var body: some View {
-        VStack{
-            TextField("Enter your name...", text: $name)
-                .multilineTextAlignment(.center)
-                .padding(.leading, 30)
-                Text("\(name.count)")
-                    .padding(.trailing, 40)
-                    .foregroundColor(nameIsValid ? .green : .red)
-            Button(action: registerUser) {
+            VStack{
                 HStack {
-                    Image(systemName: "checkmark.circle")
-                    Text("OK")
+                    TextField("Enter your name...", text: $name)
+                        .multilineTextAlignment(.center)
+                        .padding(.leading, 30)
+                    Text("\(name.count)")
+                        .foregroundColor(changeCounterColor())
+                        .padding(.trailing)
+                    
                 }
+                Button(action: registerUser) {
+                    HStack {
+                        Image(systemName: "checkmark.circle")
+                        Text("OK")
+                    }
+                }
+                .disabled(hideButton())
             }
-        }
     }
+
     private func registerUser() {
         if !name.isEmpty {
-            userManager.name = name
-            userManager.isregistered.toggle()
+            StorageManager.shared.save(userName: name)
+            userManger.name = name
+            userManger.isregistered.toggle()
         }
+    }
+    
+    private func changeCounterColor() -> Color {
+        if name.count < 3 {
+            return .red
+        }
+        return.green
+    }
+    
+    private func hideButton() -> Bool {
+        if name.count < 3 {
+            return true
+        }
+        return false
     }
     
 }
-
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterView()

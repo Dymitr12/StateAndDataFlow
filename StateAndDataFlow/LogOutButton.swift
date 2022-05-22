@@ -38,7 +38,7 @@ struct ButtonViewModifier: ViewModifier {
         content
         
             .frame(width: 200, height: 60)
-            .background(.red)
+            .background(.blue)
             .cornerRadius(20)
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
     }
